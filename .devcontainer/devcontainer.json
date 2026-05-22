@@ -4,7 +4,7 @@
 	"image": "texlive/texlive:latest",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
-      "username": "codespace",
+			"username": "texlive",
 			"configureZshAsDefaultShell": true
 		},
 		"ghcr.io/devcontainers/features/git:1": {},
@@ -14,7 +14,7 @@
 			"toolsToInstall": "pre-commit,rust-just"
 		}
 	},
-	"remoteUser": "codespace",
+	"remoteUser": "texlive",
 	"postCreateCommand": "pre-commit install",
 	"customizations": {
 		"vscode": {
