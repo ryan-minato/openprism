@@ -7,38 +7,29 @@
 \subsection{Cetacean Acoustic Communication}
 \label{subsec:cetacean-acoustics}
 
-Bottlenose dolphins (\spname{Tursiops truncatus}) produce three broad
-classes of sound: (1)~frequency-modulated whistles, which serve as
-individual identification signals or ``signature whistles'';
-(2)~burst-pulse sounds, a rapid series of clicks used in social
-contexts; and (3)~click trains for echolocation~\citep{Wonko2021communication}.
-Research into the semantic content of these vocalizations has accelerated
-over the past two decades, yet leave-taking behavior has been studied
-primarily from an ethological rather than an acoustic perspective.
+Bottlenose dolphins (\spname{Tursiops truncatus}) produce three broad classes of sound:
+(1)~frequency-modulated whistles, which serve as individual identification signals or ``signature whistles'';
+(2)~burst-pulse sounds, a rapid series of clicks used in social contexts;
+and (3)~click trains for echolocation~\citep{Wonko2021communication}.
+Research into the semantic content of these vocalizations has accelerated over the past two decades,
+yet leave-taking behavior has been studied primarily from an ethological rather than an acoustic perspective.
 
-\citet{Slartibartfast2023topology} note, almost in passing, that coastal
-populations near fjord environments exhibit unusually structured departure
-calls, attributing this to the particular resonant properties of such
-coastlines.
-This observation motivated our own data collection strategy, described
-in \cref{sec:methodology}.
+\citet{Slartibartfast2023topology} note, almost in passing, that coastal populations near fjord environments
+exhibit unusually structured departure calls, attributing this to the particular resonant properties of such coastlines.
+This observation motivated our own data collection strategy, described in \cref{sec:methodology}.
 
 \subsection{Computational Bioacoustics}
 \label{subsec:comp-bioacoustics}
 
-Sequence-level analysis of animal vocalizations has benefited greatly
-from methods developed for human speech processing.
-Hidden Markov models~(HMMs) were first applied to bird song classification
-by \citet{Deep2022number}, who demonstrated that temporal dependencies
-within a vocalization bout could be captured by the Markov transition
-matrix, achieving state-of-the-art accuracy on a 12-species corpus.
+Sequence-level analysis of animal vocalizations has benefited greatly from methods developed for human speech processing.
+Hidden Markov models~(HMMs) were first applied to bird song classification by \citet{Deep2022number},
+who demonstrated that temporal dependencies within a vocalization bout could be captured by the Markov transition matrix,
+achieving state-of-the-art accuracy on a 12-species corpus.
 
-More recently, \citet{Trillian2023signal} applied Fourier-based spectral
-envelope analysis to burst-pulse sequences, showing that departure-adjacent
-bouts in captive dolphins exhibited measurably broader spectral envelopes
+More recently, \citet{Trillian2023signal} applied Fourier-based spectral envelope analysis to burst-pulse sequences,
+showing that departure-adjacent bouts in captive dolphins exhibited measurably broader spectral envelopes
 than those recorded during feeding events.
-Our work extends this result to wild populations and tests whether the
-pattern generalizes across geographically distinct groups.
+Our work extends this result to wild populations and tests whether the pattern generalizes across geographically distinct groups.
 
 \begin{figure}[htbp]
 	\centering
@@ -54,22 +45,16 @@ pattern generalizes across geographically distinct groups.
 	\label{fig:ch01-spectrogram-example}
 \end{figure}
 
-\Cref{fig:ch01-spectrogram-example} illustrates a representative
-\aseq{extended-farewell} sequence; note the characteristic frequency
-sweep from approximately 8\kHz{} to 18\kHz{} occurring in the
-final 1.2~seconds before departure.
+\Cref{fig:ch01-spectrogram-example} illustrates a representative \aseq{extended-farewell} sequence;
+note the characteristic frequency sweep from approximately 8\kHz{} to 18\kHz{} occurring in the final 1.2~seconds before departure.
 
 \subsection{Leave-Taking in Animal Communication}
 \label{subsec:leave-taking}
 
-The study of leave-taking rituals in animal communication is a nascent
-field~\citep{Marvin2022depression}.
-Across species ranging from great apes to corvids, researchers have
-documented the existence of structured terminal vocalizations that differ
-acoustically from vocalizations produced in non-departure contexts.
-\citet{Prefect2025syntax} provides the most direct antecedent to our
-work: a minimalist syntactic analysis of 17~\spname{Tursiops} farewell
-calls recorded near the Azores, arguing for a recursive hierarchical
-structure in the calls' temporal organization.
-Our study corroborates Prefect's syntactic findings while providing the
-first corpus-scale statistical evidence for their generality.
+The study of leave-taking rituals in animal communication is a nascent field~\citep{Marvin2022depression}.
+Across species ranging from great apes to corvids, researchers have documented the existence of structured
+terminal vocalizations that differ acoustically from vocalizations produced in non-departure contexts.
+\citet{Prefect2025syntax} provides the most direct antecedent to our work:
+a minimalist syntactic analysis of 17~\spname{Tursiops} farewell calls recorded near the Azores,
+arguing for a recursive hierarchical structure in the calls' temporal organization.
+Our study corroborates Prefect's syntactic findings while providing the first corpus-scale statistical evidence for their generality.

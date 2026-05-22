@@ -66,7 +66,10 @@ For sections, place `\label{}` on the line directly after `\section{}`.
 ## Source Formatting
 
 - Maximum line length: 120 characters in LaTeX source.
-- Prefer one sentence per source line in prose paragraphs (aids diff readability).
+- Break source lines at semantic boundaries. Short consecutive sentences may
+  share a line; long sentences may break at a meaningful comma or semicolon.
+  Never break mid-phrase (between adjective and noun, inside a parenthetical,
+  or between a preposition and its object). See `STYLE.md §4`.
 - Use `~` for non-breaking spaces before numeric references: `42~recordings`.
 - Indent `\item` content by 8 spaces (two tab stops) inside `itemize`/`enumerate`.
 - No trailing whitespace.

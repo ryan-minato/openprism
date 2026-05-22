@@ -93,12 +93,14 @@ instead.
 10 and above, and always for quantities accompanied by a unit
 (e.g., *3 sites*, *42 events*, *96 kHz*).
 
-**LaTeX source line breaks.** Break source lines at logical boundaries, not
-at a fixed character count. The appropriate places to break are: after a
-complete sentence, or within a long sentence at a clause boundary (after a
-comma or semicolon). A blank line between source blocks creates a new
-paragraph; a plain newline does not—use it only for readability of the
-source.
+**LaTeX source line breaks.** Break source lines at semantic boundaries, not
+at a fixed character count and not mechanically at each sentence end.
+If several short sentences flow together naturally, keep them on the same line.
+For a long sentence, find a comma or semicolon that marks a genuine pause in
+meaning and break there; never break mid-phrase (e.g., between an adjective
+and its noun, inside a parenthetical, or between a preposition and its object).
+A blank line between source blocks creates a new paragraph; a plain newline
+does not—use it only where it aids readability without fragmenting the prose.
 
 ---
 
