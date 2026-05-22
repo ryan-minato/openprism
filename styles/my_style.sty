@@ -1,0 +1,39 @@
+%% styles/my_style.sty — Project-specific style definitions
+%% Loaded via \input{styles/my_style} from preamble.tex.
+%% Do NOT add \usepackage calls here; use preamble.tex instead.
+
+%% ── Project color palette ─────────────────────────────────────────────────────
+\definecolor{OceanDeep}{HTML}{003F72}
+\definecolor{OceanMid}{HTML}{0077B6}
+\definecolor{OceanLight}{HTML}{ADE8F4}
+\definecolor{CoralAccent}{HTML}{E07A5F}
+\definecolor{NoteGray}{HTML}{6B7280}
+
+%% ── Theorem-style environments ────────────────────────────────────────────────
+\usepackage{amsthm}
+
+\newtheoremstyle{definition-style}
+  {6pt}{6pt}{\normalfont}{}
+  {\bfseries\color{OceanDeep}}{.}{0.5em}{}
+
+\theoremstyle{definition-style}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{hypothesis}{Hypothesis}[section]
+
+\newtheoremstyle{remark-style}
+  {4pt}{4pt}{\normalfont}{}
+  {\itshape\color{NoteGray}}{.}{0.5em}{}
+
+\theoremstyle{remark-style}
+\newtheorem*{remark}{Remark}
+
+%% ── Section heading style ─────────────────────────────────────────────────────
+\usepackage{titlesec}
+
+\titleformat{\section}
+  {\large\bfseries\color{OceanDeep}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{OceanMid}}
+  {\thesubsection}{1em}{}

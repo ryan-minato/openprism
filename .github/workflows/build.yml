@@ -1,0 +1,69 @@
+name: Build LaTeX Document
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - '**.sty'
+      - '.latexmkrc'
+  pull_request:
+    branches: [main]
+    paths:
+      - '**.tex'
+      - '**.bib'
+      - '**.sty'
+      - '.latexmkrc'
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint LaTeX sources
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install chktex
+        run: sudo apt-get install -y chktex
+
+      - name: Run chktex
+        run: |
+          chktex -wall -n1 -n2 -n3 -q \
+            main.tex preamble.tex \
+            chapters/01_introduction.tex \
+            chapters/02_background.tex \
+            chapters/03_methodology.tex \
+            tables/comparison_table.tex
+
+  build:
+    name: Compile PDF
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          latexmk_use_lualatex: false
+          latexmk_shell_escape: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Move PDF to output directory
+        run: |
+          mkdir -p output
+          mv main.pdf output/main.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: main-pdf
+          path: output/main.pdf
+          retention-days: 30
+          if-no-files-found: error

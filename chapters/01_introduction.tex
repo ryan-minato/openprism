@@ -1,0 +1,60 @@
+% Read STYLE.md before editing prose in this file.
+% Follow the Content Creation Workflow in WORKFLOW.md §Content Creation Workflow.
+
+\section{Introduction}
+\label{sec:intro}
+
+Dolphins have long been recognized as among the most communicatively
+sophisticated non-human animals on Earth~\citep{Wonko2021communication}.
+Their vocalizations span a wide frequency range---from low-frequency
+burst-pulse sounds near 200\Hz{} to high-frequency whistles exceeding
+20\kHz{}---and serve functions including individual identification,
+group coordination, and echolocation~\citep{Trillian2023signal}.
+Yet despite this richness, one category of dolphin vocalization has
+attracted remarkably little systematic study: the acoustic signals
+produced immediately before a group or individual permanently departs a
+location.
+
+\begin{hypothesis}[Farewell Specificity]
+  \label{hyp:specificity}
+  Pre-departure vocalizations in \spname{Tursiops truncatus} form a
+  structurally distinct class, separable from non-departure vocalizations
+  by measurable acoustic features including frequency contour,
+  inter-pulse interval, and burst duration.
+\end{hypothesis}
+
+This paper tests \cref{hyp:specificity} by applying computational
+linguistics methods---specifically hidden Markov model (HMM) sequence
+alignment and spectral envelope analysis---to a curated corpus of
+42~departure events recorded across three Atlantic coastal populations
+between 2021 and 2024~\citep{GuideResearch2025dataset}.
+
+\subsection{Contributions}
+\label{subsec:contrib}
+
+The main contributions of this work are as follows.
+
+\begin{itemize}
+  \item We introduce the \emph{Atlantic Cetacean Farewell Corpus}
+        (ACFC v1.0), the first annotated dataset of departure-specific
+        \spname{T.\ truncatus} vocalizations.
+
+  \item We identify three recurring sequence archetypes---which we term
+        \aseq{brief-farewell}, \aseq{extended-farewell}, and
+        \aseq{urgent-departure}---and characterize their acoustic profiles
+        (see \cref{tab:vocalization-comparison}).
+
+  \item We demonstrate that a bigram HMM trained on ACFC achieves
+        86.4\% accuracy in distinguishing departure from non-departure
+        sequences, substantially above the chance baseline of 50\%.
+\end{itemize}
+
+\subsection{Paper Organization}
+\label{subsec:organization}
+
+\Cref{sec:background} reviews related literature on cetacean
+communication and computational approaches to bioacoustic classification.
+\Cref{sec:methodology} describes the data collection protocol,
+annotation scheme, and computational methods.
+We conclude with a discussion of implications for interspecies
+communication theory.

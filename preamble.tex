@@ -1,0 +1,66 @@
+%% preamble.tex — Package loading, custom commands, and style settings
+%% All settings that belong before \begin{document} live here.
+
+%% ── Encoding & fonts ──────────────────────────────────────────────────────────
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}          % Improved text justification and kerning
+
+%% ── Page geometry ─────────────────────────────────────────────────────────────
+\usepackage[
+  a4paper,
+  top=25mm, bottom=25mm,
+  left=30mm, right=25mm
+]{geometry}
+
+%% ── Mathematics ───────────────────────────────────────────────────────────────
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+%% ── Graphics ──────────────────────────────────────────────────────────────────
+\usepackage{graphicx}
+\graphicspath{{figures/}}
+
+%% ── Tables ────────────────────────────────────────────────────────────────────
+\usepackage{booktabs}           % Professional-quality horizontal rules
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{makecell}           % Multi-line header cells via \makecell[r]{...}
+
+%% ── Colors ────────────────────────────────────────────────────────────────────
+\usepackage[dvipsnames, table]{xcolor}
+\input{styles/my_style.sty}    % Project-specific color palette and environments
+
+%% ── Bibliography (biber backend) ──────────────────────────────────────────────
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  sorting=nyt,
+  natbib=true
+]{biblatex}
+\addbibresource{references.bib}
+
+%% ── Cross-references ──────────────────────────────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+\usepackage[capitalise, noabbrev]{cleveref}
+
+%% ── Utilities ─────────────────────────────────────────────────────────────────
+\usepackage{csquotes}           % Recommended by biblatex
+\usepackage{lipsum}             % Placeholder text (remove in final version)
+\usepackage{setspace}
+\onehalfspacing
+
+%% ── Custom commands ───────────────────────────────────────────────────────────
+
+% Species name: italic, properly typeset
+\newcommand{\spname}[1]{\textit{#1}}
+
+% Frequency unit shorthand
+\newcommand{\kHz}{\,\text{kHz}}
+\newcommand{\Hz}{\,\text{Hz}}
+
+% Shorthand for confidence interval
+\newcommand{\ci}[2]{[#1,\,#2]}
+
+% Sequence notation: acoustic event label in small caps
+\newcommand{\aseq}[1]{\textsc{#1}}

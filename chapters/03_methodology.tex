@@ -1,0 +1,85 @@
+% Read STYLE.md before editing prose in this file.
+% Follow the Content Creation Workflow in WORKFLOW.md §Content Creation Workflow.
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Data Collection}
+\label{subsec:data-collection}
+
+Acoustic recordings were obtained at three Atlantic sites: Site~A
+(western Azores archipelago), Site~B (Bay of Biscay, northern Spain),
+and Site~C (Cape Verde islands).
+Field observations were conducted between June~2021 and September~2024,
+yielding 42~confirmed departure events for which full acoustic records
+were available.
+A departure event was defined as a session in which a marked individual
+or coherent group left the observation area and did not return within
+the 72-hour monitoring window.
+
+\begin{definition}[Departure Event]
+  \label{def:departure-event}
+  A \emph{departure event} is a continuous acoustic recording window of
+  \(\pm 5\) minutes around the last observed surfacing of a focal
+  individual or group, provided that individual or group did not re-enter
+  the monitoring area within 72~hours of the recording.
+\end{definition}
+
+Recordings were made using calibrated hydrophone arrays deployed at
+depths of 3--8~m, sampling at 96\kHz{} with 24-bit resolution.
+All recordings were stored in lossless FLAC format and are archived
+with the \citet{GuideResearch2025dataset} dataset.
+
+\subsection{Annotation Scheme}
+\label{subsec:annotation}
+
+Each departure event was segmented into discrete acoustic units by two
+independent annotators following the protocol in
+\citet{GuideResearch2025dataset}.
+Inter-annotator agreement, measured by Cohen's~$\kappa$, was $0.83$
+across the full corpus---within the range typically considered
+``substantial'' agreement~\citep{Dent2024farewell}.
+
+Each unit was assigned one of five labels:
+\texttt{whistle}, \texttt{burst-pulse}, \texttt{click-train},
+\texttt{silence}, or \texttt{noise}.
+The sequence of labels for a departure event constitutes a
+\emph{vocalization trace}.
+
+\subsection{Computational Analysis}
+\label{subsec:analysis}
+
+\paragraph{Hidden Markov Model}
+
+We model each vocalization trace as a sequence emitted by a discrete-time
+HMM with $N$ hidden states representing acoustic context:
+
+\begin{equation}
+  \label{eq:hmm-likelihood}
+  P(\mathbf{o} \mid \lambda) =
+    \sum_{\mathbf{q}} P(\mathbf{o} \mid \mathbf{q}, \lambda)\,
+                     P(\mathbf{q} \mid \lambda),
+\end{equation}
+
+where $\mathbf{o} = (o_1, \ldots, o_T)$ is the observed label sequence,
+$\mathbf{q} = (q_1, \ldots, q_T)$ is the hidden state sequence, and
+$\lambda = (A, B, \pi)$ denotes the transition matrix, emission matrix,
+and initial distribution, respectively.
+
+Model parameters were estimated using the Baum--Welch algorithm with
+random restarts ($k=50$).
+The number of hidden states $N$ was selected by Bayesian information
+criterion over the range $N \in \{2, 3, \ldots, 10\}$; the
+optimal value was $N = 4$.
+
+\paragraph{Spectral Envelope Analysis}
+
+For each annotated whistle unit, we extracted the spectral envelope using
+linear predictive coding (LPC) with order $p = 16$.
+The resulting envelope coefficients were projected onto a 2D space via
+principal component analysis (PCA) for visualization.
+
+\Cref{tab:vocalization-comparison} summarizes the acoustic features of
+the three identified archetypes.
+
+\input{tables/comparison_table}
