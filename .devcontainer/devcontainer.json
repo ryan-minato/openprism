@@ -1,0 +1,27 @@
+{
+	"name": "LaTeX Dev Container",
+	// TexLive image: https://hub.docker.com/r/texlive/texlive
+	"image": "texlive/texlive:latest",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "codespace",
+			"configureZshAsDefaultShell": true
+		},
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/git-lfs:1": {},
+		"ghcr.io/devcontainers/features/node:2": {},
+		"ghcr.io/devcontainers/features/python:1": {
+			"toolsToInstall": "pre-commit,rust-just"
+		}
+	},
+	"remoteUser": "codespace",
+	"postCreateCommand": "pre-commit install",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"James-Yu.latex-workshop",
+				"EditorConfig.EditorConfig"
+			]
+		}
+	}
+}

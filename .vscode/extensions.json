@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "editorconfig.editorconfig",
+        "james-yu.latex-workshop",
+        // "openai.chatgpt",
+        // "github.copilot-chat",
+        // "anthropic.claude-code"
+    ]
+}
