@@ -18,11 +18,11 @@ or coherent group left the observation area and did not return within
 the 72-hour monitoring window.
 
 \begin{definition}[Departure Event]
-  \label{def:departure-event}
-  A \emph{departure event} is a continuous acoustic recording window of
-  \(\pm 5\) minutes around the last observed surfacing of a focal
-  individual or group, provided that individual or group did not re-enter
-  the monitoring area within 72~hours of the recording.
+	\label{def:departure-event}
+	A \emph{departure event} is a continuous acoustic recording window of
+	\(\pm 5\) minutes around the last observed surfacing of a focal
+	individual or group, provided that individual or group did not re-enter
+	the monitoring area within 72~hours of the recording.
 \end{definition}
 
 Recordings were made using calibrated hydrophone arrays deployed at
@@ -55,10 +55,10 @@ We model each vocalization trace as a sequence emitted by a discrete-time
 HMM with $N$ hidden states representing acoustic context:
 
 \begin{equation}
-  \label{eq:hmm-likelihood}
-  P(\mathbf{o} \mid \lambda) =
-    \sum_{\mathbf{q}} P(\mathbf{o} \mid \mathbf{q}, \lambda)\,
-                     P(\mathbf{q} \mid \lambda),
+	\label{eq:hmm-likelihood}
+	P(\mathbf{o} \mid \lambda) =
+	\sum_{\mathbf{q}} P(\mathbf{o} \mid \mathbf{q}, \lambda)\,
+	P(\mathbf{q} \mid \lambda),
 \end{equation}
 
 where $\mathbf{o} = (o_1, \ldots, o_T)$ is the observed label sequence,

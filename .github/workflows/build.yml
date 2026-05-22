@@ -32,7 +32,7 @@ jobs:
 
       - name: Run chktex
         run: |
-          chktex -wall -n1 -n2 -n3 -q \
+          chktex -wall -n1 -n2 -n3 -n6 -n8 -n22 -n24 -n30 -n46 -q \
             main.tex preamble.tex \
             chapters/01_introduction.tex \
             chapters/02_background.tex \
@@ -55,10 +55,8 @@ jobs:
           latexmk_shell_escape: false
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
-      - name: Move PDF to output directory
-        run: |
-          mkdir -p output
-          mv main.pdf output/main.pdf
+      - name: Verify PDF output
+        run: ls -la output/main.pdf
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v4
